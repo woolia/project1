@@ -14,6 +14,11 @@ plugins {
 //		attributes 'Main-Class': 'project.pr.PrApplication'
 //	}
 //}
+jar {
+	manifest {
+		attributes 'Main-Class' : 'project.pr.PrApplication', 'Version' : 1.0
+	}
+}
 
 
 group = 'project'
