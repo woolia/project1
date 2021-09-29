@@ -106,7 +106,7 @@ public class HomeController {
     }
 
 
-    @PostConstruct
+//    @PostConstruct
     void init(){
 
         Member userA = new Member("userA", "A","1234" ,new Address("street1", "city1"), "010-4652-6327", Grade.FIRST, "zecrar@naver.com" , 0,Role.USER);
