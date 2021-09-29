@@ -3,16 +3,21 @@ jdk:
   - openjdk8
 
 branches:
+#  // 어느 브랜치가 푸시될 때 수행할지 결정
   only:
+#  // 현재는 오직 master가 푸시될떄만
     - master
 
 # Travis CI 서버의 Home
 cache:
+#  // 그레들을 통해 의존성을 받으면 디렉토리가 캐싱하여 같은 의존성은 다음배포시
+#  // 받지않게 설정
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
 script: "./gradlew clean build"
+#          master 브랜치가 푸시됐을 때 수행하는 명령어
 
 # CI 실행 완료시 메일로 알람
 notifications:
