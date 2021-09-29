@@ -9,12 +9,6 @@ plugins {
 
 
 // 배포할때 manifast 에러가 발생할 때
-jar {
-	manifest {
-		attributes 'Main-Class': 'project.pr.PrApplication'
-	}
-}
-
 
 group = 'project'
 version = '0.0.1-SNAPSHOT'
@@ -35,6 +29,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation group: 'org.springframework.boot', name: 'spring-boot-maven-plugin', version: '2.5.0-RC1'
+
 
 	// 구글 로그인 추가
 	// 해당 옵션을 추가해야만 SecurityConfig의  WebSecurityConfigurerAdapter 클래스를 사용할 수 있다.
