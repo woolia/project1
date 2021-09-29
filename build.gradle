@@ -7,13 +7,13 @@ plugins {
 	id 'java'
 }
 
-jar {
-	manifest {
-		attributes(
-				'Main-Class': 'springboot_project-project.project.PrApplication'
-		)
-	}
-}
+//jar {
+//	manifest {
+//		attributes(
+//				'Main-Class': 'springboot_project-project.project.PrApplication'
+//		)
+//	}
+//}
 
 
 group = 'project'
