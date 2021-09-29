@@ -4,6 +4,13 @@ jdk:
 branches:
   only:
     - master
+
+# $ ./gradlew assemble 에러
+# ./gradlew: Permission denied git에 permission을 업데이트 해줘야 travis가 실행할 수 있다.
+# 그래서 다음과 같은 설정을 추가
+before_install:
+  - chmod +x gradlew
+
 cache:
   directories:
     - '$HOME/.m2/repository'
