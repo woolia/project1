@@ -12,7 +12,7 @@ plugins {
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'springboot_project-project.project.pr.PrApplication'
+				'Main-Class': 'springboot_project-project.project.PrApplication'
 		)
 	}
 }
