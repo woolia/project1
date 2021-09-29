@@ -9,7 +9,11 @@ plugins {
 
 
 // 배포할때 manifast 에러가 발생할 때
-
+jar {
+	manifest {
+		attributes 'Main-Class': 'project.pr.PrApplication'
+	}
+}
 
 
 group = 'project'
