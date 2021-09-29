@@ -39,7 +39,7 @@ public class MemberController {
 
         model.addAttribute("memberForm" , new MemberEnrollForm());
         // enroll.html 에 memberForm 속성이 있기 때문에 빈모델이라도 memberForm 을 보내야한다.
-        return "/members/enroll";
+        return "members/enroll";
     }
 
 
@@ -93,7 +93,7 @@ public class MemberController {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members" , members);
 
-        return "/members/memberList";
+        return "members/memberList";
     }
 
 

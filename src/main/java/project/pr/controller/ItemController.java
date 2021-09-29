@@ -75,7 +75,7 @@ public class ItemController {
     public String itemEnrollForm(Model model){
         ItemEnrollForm itemEnrollForm = new ItemEnrollForm();
         model.addAttribute("itemForm" , new ItemEnrollForm());
-        return "/items/ItemEnroll";
+        return "items/ItemEnroll";
     }
 
     //@PostMapping("/enroll")
