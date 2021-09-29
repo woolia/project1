@@ -22,7 +22,7 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r project1
+  - zip -r project1 *
   - mkdir -p deploy
   - mv project1.zip deploy/project1.zip
 
