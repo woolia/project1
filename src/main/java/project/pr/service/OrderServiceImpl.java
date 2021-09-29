@@ -64,7 +64,7 @@ public class OrderServiceImpl implements OrderService{
 
         int discountedPrice = discountPolicy.discount(findMember, orderItem.getOrderPrice());
         // discountPolicy에서 discount 정책에 맞는 할인금액을 계산해준다.
-        // 현재는 FixDiscount이지만 나중에는 Rate 등을 @OrderApp 의 @Configuration , @Bean 에노테이션을 통해 정할 수 있음
+        // 현재는 FixDiscount이지만 나중에는 Rate 등을 OrderApp 의 @Configuration , @Bean 에노테이션을 통해 정할 수 있음
         // 가능한 이유는 다형성을 보장해서 코드를 작성했기 때문에 , 즉 , DiscountPolicy 인터페이스에 맞게 각각 FixDiscountPolicy, RateDiscountPolicy 등을 생성
         log.info("discountPrice = {}" , discountedPrice);
 
