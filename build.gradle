@@ -7,6 +7,15 @@ plugins {
 	id 'java'
 }
 
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'springboot_project-project.project.PrApplication'
+		)
+	}
+}
+
+
 group = 'project'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'
