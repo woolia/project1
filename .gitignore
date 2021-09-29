@@ -39,3 +39,6 @@ out/
 
 application.yml
 application-oauth.properties
+OrderServiceImplTest.java
+MultiThread.java
+MemberServiceTest.java
