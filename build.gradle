@@ -7,6 +7,8 @@ plugins {
 	id 'java'
 }
 
+
+// 배포할때 manifast 에러가 발생할 때
 jar {
 	manifest {
 		attributes(
