@@ -89,13 +89,13 @@ public class MemberService {
     // 멀티 스레드를 위한 예시용 메서드
     @Transactional
     public void findMemberaddCash(Long memberId , int cash) {
-        Member member = memberRepository.findMemberById(memberId).orElseThrow();
-        // memberRepository의 findById() 메서드는  pessimistic lock 을 걸어놓은 repository method 이다.
-        int currentCash = member.getCash();
-        log.info("현재 스레드 : {} , 입금전잔액 : {}" , Thread.currentThread().getName() , currentCash);
-        int result = member.addCash(cash);
-        log.info("현재 스레드 : {} , 입금후잔액 : {}" , Thread.currentThread().getName() , result);
-        memberRepository.save(member);
+//        Member member = memberRepository.findMemberById(memberId).orElseThrow();
+//        // memberRepository의 findById() 메서드는  pessimistic lock 을 걸어놓은 repository method 이다.
+//        int currentCash = member.getCash();
+//        log.info("현재 스레드 : {} , 입금전잔액 : {}" , Thread.currentThread().getName() , currentCash);
+//        int result = member.addCash(cash);
+//        log.info("현재 스레드 : {} , 입금후잔액 : {}" , Thread.currentThread().getName() , result);
+//        memberRepository.save(member);
     }
 
     public Member findEmail(String email) {
