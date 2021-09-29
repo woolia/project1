@@ -12,7 +12,7 @@ plugins {
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'PrApplication'
+				'Main-Class': 'project.pr.PrApplication'
 
 		)
 	}
