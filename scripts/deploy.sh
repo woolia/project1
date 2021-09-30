@@ -7,7 +7,12 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 어플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -fl project1 | grep jar | awk '{print $1}')
+CURRENT_PID=$(lsof -i :8080 | grep LISTEN | awk '{print $2}')
+
+# pgrep -fl project1 | grep jar | awk '{print $1}' 가 먹히질 않음 그래서 변경
+# lsof -i :8080 | grep LISTEN | awk '{print $2}' 로 변경
+
+# lsof -i :8080 | grep LISTEN 가 8080 port의 정보를 찾음
 
 echo " 현재 구동중인 어플리케이션pid : $CURRENT_PID"
 
