@@ -26,20 +26,20 @@
 
         <p class="lead" th:text="|${member.name} 회원 입니다.|">회원</p>
         <p>
-            <a class="btn btn-lg btn-secondary" th:href="@{/logout}">로그아웃</a>
-            <a class="btn btn-lg btn-secondary" th:href="@{/members/list}" >회원 목록</a>
+            <a class="btn btn-lg btn-secondary" th:href="@{logout}">로그아웃</a>
+            <a class="btn btn-lg btn-secondary" th:href="@{members/list}" >회원 목록</a>
         </p>
         <p class="lead">상품 기능</p>
         <p>
-            <a class="btn btn-lg btn-dark" th:href="@{/items/enroll}">상품 등록</a>
-            <a class="btn btn-lg btn-dark" th:href="@{/items/list}">상품 목록</a>
+            <a class="btn btn-lg btn-dark" th:href="@{items/enroll}">상품 등록</a>
+            <a class="btn btn-lg btn-dark" th:href="@{items/list}">상품 목록</a>
         </p>
         <p class="lead">주문 기능</p>
         <p>
-            <a class="btn btn-lg btn-info" th:href="@{/order/1}">상품 주문1</a>
-            <a class="btn btn-lg btn-info" th:href="@{/order/2}">상품 주문2</a>
-            <a class="btn btn-lg btn-info" th:href="@{/order/3}">상품 주문3</a>
-            <a class="btn btn-lg btn-info" th:href="@{/order/list}">주문 내역</a>
+            <a class="btn btn-lg btn-info" th:href="@{order/1}">상품 주문1</a>
+            <a class="btn btn-lg btn-info" th:href="@{order/2}">상품 주문2</a>
+            <a class="btn btn-lg btn-info" th:href="@{order/3}">상품 주문3</a>
+            <a class="btn btn-lg btn-info" th:href="@{order/list}">주문 내역</a>
         </p>
     </div>
     <div th:replace="fragments/footer :: footer" />

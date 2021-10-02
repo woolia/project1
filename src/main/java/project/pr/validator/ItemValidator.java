@@ -40,12 +40,12 @@ public class ItemValidator implements Validator {
 
         if(item.getPrice() == null || item.getPrice() <= 1000 || item.getPrice() >= 100000){
             // bindingResult.addError(new FieldError("form" , "price" , form.getPrice() , false , new String[]{"range.item.price"} , new Object[]{1000,100000} , null));
-            errors.rejectValue("price" , "ItemRange",new Object[]{1000,100000},null);
+            errors.rejectValue("price" , "ItemRange",new Object[]{1000,100000},"범위에 맞지 않습니다.");
         }
 
         if(item.getStockQuantity() == null || item.getStockQuantity() < 10){
             // bindingResult.addError(new FieldError("form" , "stockQuantity" , form.getStockQuantity() , false , new String[]{"max.item.quantity"} , new Object[]{10} , null));
-            errors.rejectValue("stockQuantity" , "ItemMin", new Object[]{10} , null);
+            errors.rejectValue("stockQuantity" , "ItemMin", new Object[]{10} , "값이 부정확합니다.");
         }
 
         if(item.getPrice() != null && item.getStockQuantity() != null){
