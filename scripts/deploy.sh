@@ -20,6 +20,7 @@ else
     kill -15 $CURRENT_PID
     sleep 5
 fi
+
 # pgrep -fl project1 | grep jar | awk '{print $1}' 가 먹히질 않음 그래서 변경
 # lsof -i :8080 | grep LISTEN | awk '{print $2}' 로 변경
 
