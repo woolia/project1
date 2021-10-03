@@ -1,4 +1,5 @@
 #!/bin/bash
+
 REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=project1
 
@@ -6,24 +7,23 @@ echo "> Build 파일 복사"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
-echo "> 현재 구동중인 어플리케이션 pid 확인"
+echo "> 현재 구동중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(netstat -tnlp|grep 8080|gawk '{ print $7 }'|grep -o '[0-9]*')
+CURRENT_PID=$(pgrep -fl freelec-springboot2-webservice | grep jar | awk '{print $1}')
 
+echo "현재 구동중인 어플리케이션 pid: $CURRENT_PID"
+
+if [ -z "$CURRENT_PID" ]; then
+    echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
+else
+    echo "> kill -15 $CURRENT_PID"
+    kill -15 $CURRENT_PID
+    sleep 5
+fi
 # pgrep -fl project1 | grep jar | awk '{print $1}' 가 먹히질 않음 그래서 변경
 # lsof -i :8080 | grep LISTEN | awk '{print $2}' 로 변경
 
 # lsof -i :8080 | grep LISTEN 가 8080 port의 정보를 찾음
-
-echo " 현재 구동중인 어플리케이션pid : $CURRENT_PID"
-
-if [ -z "$CURRENT_PID" ]; then
-        echo "> 현재 구동중인 어플리케이션이 없으므로 종료하지 않습니다."
-else
-        echo"> kill -15 $CURRNET_PID"
-        kill -15 $CURRENT_PID
-        sleep 5
-fi
 
 echo "> 새 어플리케이션 배포"
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
