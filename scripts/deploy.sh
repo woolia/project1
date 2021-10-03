@@ -16,7 +16,7 @@ CURRENT_PID=$(lsof -i :8080 | grep LISTEN | awk '{print $2}')
 
 echo " 현재 구동중인 어플리케이션pid : $CURRENT_PID"
 
-lsof -P | grep ':8080' | awk '{print $2}' | xargs kill -15
+lsof -i :8080 | grep LISTEN | awk '{print $2}' | xargs kill -15
 sleep 5
 
 #if [ -z "$CURRENT_PID"]; then
