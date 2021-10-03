@@ -17,7 +17,7 @@ CURRENT_PID=$(lsof -i :8080 | grep LISTEN | awk '{print $2}')
 
 echo " 현재 구동중인 어플리케이션pid : $CURRENT_PID"
 
-if [ -z "$CURRENT_PID"]; then
+if [ -z "$CURRENT_PID" ]; then
         echo "> 현재 구동중인 어플리케이션이 없으므로 종료하지 않습니다."
 else
         echo"> kill -15 $CURRNET_PID"
