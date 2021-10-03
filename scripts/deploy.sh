@@ -8,7 +8,7 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 어플리케이션 pid 확인"
 
-CURRENT_PID=$(lsof -i :8080 | grep LISTEN | awk '{print $2}')
+CURRENT_PID=$(netstat -tnlp|grep 8080|gawk '{ print $7 }'|grep -o '[0-9]*')
 
 # pgrep -fl project1 | grep jar | awk '{print $1}' 가 먹히질 않음 그래서 변경
 # lsof -i :8080 | grep LISTEN | awk '{print $2}' 로 변경
