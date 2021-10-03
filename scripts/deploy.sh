@@ -3,6 +3,7 @@ REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=project1
 
 echo "> Build 파일 복사"
+
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 어플리케이션 pid 확인"
@@ -16,16 +17,13 @@ CURRENT_PID=$(lsof -i :8080 | grep LISTEN | awk '{print $2}')
 
 echo " 현재 구동중인 어플리케이션pid : $CURRENT_PID"
 
-lsof -i :8080 | grep LISTEN | awk '{print $2}' | xargs kill -15
-sleep 5
-
-#if [ -z "$CURRENT_PID"]; then
-#        echo "> 현재 구동중인 어플리케이션이 없으므로 종료하지 않습니다."
-#else
-#        echo"> kill -15 $CURRNET_PID"
-#        kill -15 $CURRENT_PID
-#        sleep 5
-#fi
+if [ -z "$CURRENT_PID"]; then
+        echo "> 현재 구동중인 어플리케이션이 없으므로 종료하지 않습니다."
+else
+        echo"> kill -15 $CURRNET_PID"
+        kill -15 $CURRENT_PID
+        sleep 5
+fi
 
 echo "> 새 어플리케이션 배포"
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
