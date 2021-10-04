@@ -78,7 +78,7 @@ public class OrderController {
         Order findOrder = orderService.findOne(orderId);
 
         redirectAttributes.addAttribute("status" , true);
-        redirectAttributes.addAttribute("name" , findOrder.getMember().getName()+" 회원 "+ findOrder.getOrderItems().get(0)+" 상품 주문");
+        redirectAttributes.addAttribute("name" , findOrder.getMember().getName()+" 회원 "+ findOrder.getOrderItems().get(0).getItem().getName()+" 상품 주문");
 
         return "redirect:/home";
     }
@@ -192,11 +192,20 @@ public class OrderController {
     }
 
     @GetMapping("/list")
-    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch , Model model){
+    public String orderList(@ModelAttribute("orderSearch") OrderDomainSearch OrderDomainSearch , Model model){
 
-        List<Order> orders = orderService.findAll();
+        List<Order> orders = orderService.findOrders(OrderDomainSearch);
         model.addAttribute("orders" , orders);
         return "order/orderList";
+    }
+
+
+    @PostMapping("/{orderId}/cancel")
+    public String orderCancel(@PathVariable("orderId") Long orderId){
+
+        log.info("===== 주문 삭제 ==========");
+        orderService.cancelOrder(orderId);
+        return "redirect:/order/list";
     }
 
 

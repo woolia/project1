@@ -1,6 +1,9 @@
 package project.pr.service;
 
+import org.aspectj.weaver.ast.Or;
+import project.pr.controller.form.OrderSearch;
 import project.pr.domain.Order;
+import project.pr.domain.OrderDomainSearch;
 import project.pr.domain.status.OrderStatus;
 
 import java.util.List;
@@ -25,5 +28,7 @@ public interface OrderService {
     void save(Long memberId, Long itemId , int count);
 
     List<Order> findMemberAndOrderItem(Long orderId);
+
+    List<Order> findOrders(OrderDomainSearch OrderDomainSearch);
 
 }

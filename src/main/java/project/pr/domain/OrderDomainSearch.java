@@ -1,15 +1,13 @@
-package project.pr.controller.form;
+package project.pr.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import project.pr.domain.status.OrderStatus;
 
 @Getter @Setter
-public class OrderSearch {
+public class OrderDomainSearch {
 
-    private String name;
+    private String memberName;
     private OrderStatus orderStatus;
-    private int quantity;
 
 }

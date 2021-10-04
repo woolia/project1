@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import project.pr.controller.form.OrderSearch;
 import project.pr.domain.*;
 import project.pr.domain.status.DeliveryStatus;
 import project.pr.domain.status.OrderStatus;
@@ -175,6 +176,8 @@ public class OrderServiceImpl implements OrderService{
         return allQuaryDsl;
     }
 
-
-
+    @Override
+    public List<Order> findOrders(OrderDomainSearch OrderDomainSearch) {
+        return orderRepository.findOrderSearch(OrderDomainSearch);
+    }
 }
