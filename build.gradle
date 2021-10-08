@@ -44,8 +44,7 @@ dependencies {
 	// 해당 옵션이 있어야 schema-mysql 이 가능한거 같다.
 	implementation 'org.springframework.session:spring-session-jdbc:2.5.2'
 
-	implementation 'org.mariadb.jdbc:mariadb-java-client'
-	runtimeOnly 'com.h2database:h2'
+	compileOnly 'org.mariadb.jdbc:mariadb-java-client'
 
 
 	//querydsl 추가
@@ -57,10 +56,12 @@ dependencies {
 	annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
 	annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
 
+	runtimeOnly 'com.h2database:h2'
+	compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.1'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
 
 test {
 	useJUnitPlatform()
