@@ -57,7 +57,8 @@ dependencies {
 	annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
 
 	runtimeOnly 'com.h2database:h2'
-	compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.1'
+
+
 
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
